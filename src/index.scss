@@ -1,16 +1,36 @@
-$primary-color: rgb(97, 168, 175);  
-$nav-color: rgb(42, 42, 42); 
-$nav-link-size: 22px; 
+//Fonts
+@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@500&display=swap');
 
-$text-color: rgb(36, 35, 35); 
+//Element colors 
+$primary-color: rgb(58, 59, 59);  
+
+//Text colors
+$text-color-dark: rgb(36, 35, 35); 
+$text-color-light: rgb(216, 216, 216); 
 $link-color: rgb(223, 223, 223); 
-$text-size-paragraph: 14px;
-$text-size-h1: 28px; 
 
-@mixin flexBox($alignItems, $justifyContent) { 
+//Text sizes 
+$text-size-paragraph: 14px;
+$text-size-h1: 48px; 
+
+@mixin flexBox($alignItems, $justifyContent, $flexDirection) { 
     display: flex;
+    flex-direction: $flexDirection;
     align-items: $alignItems;
     justify-content: $justifyContent;
+}
+
+@mixin button($colorButton, $colorText, $hoverColor) { 
+    width: 220px; 
+    height: 50px;
+    color: $colorText; 
+    background-color: $colorButton;
+    font-size: 16px;
+    padding: 10px; 
+    &:hover { 
+     cursor: pointer;
+     background-color: $hoverColor;
+    }
 }
 
 * { 
@@ -19,29 +39,52 @@ $text-size-h1: 28px;
     box-sizing: border-box;
 }
 
-
 body { 
     width: 100%;
     height: 100%; 
+    font-family: 'Hind Madurai', sans-serif;
 }
 
-nav { 
-    @include flexBox(center, space-between); 
-    width: 100%;
-    height: 100px;
-    background-color: $nav-color;
-    .nav-links-container { 
-        margin-right: 30px;
-        a { 
-            padding: 10px;
-            font-size: $nav-link-size;
-            color: $link-color;
-            &:hover { 
-               color: $primary-color;  
-               cursor: pointer;
-            } 
+#login-page { 
+    @include flexBox((center), center, row);
+    height: 100vh; 
+    width: 100%; 
+    background: rgb(14,12,59);
+    background: radial-gradient(circle, rgba(14,12,59,1) 0%, rgba(148,187,233,1) 100%); 
+}
+
+#login-card { 
+    @include flexBox(center, center, column); 
+    width: 400px; 
+    height: 300px; 
+    border-radius: 16px;
+    background-color: rgba(148,187,233,0.3);
+    h1 { 
+        font-size: $text-size-h1;
+        color: white; 
+    }
+    h2 { 
+        margin-bottom: 2rem; 
+        color: white; 
+    }
+}
+
+.login-button { 
+    @include button($primary-color, white, rgb(88, 86, 86)); 
+    @include flexBox(center, space-between, row);
+    border-radius: 16px;
+    border: none; 
+    margin: 2px;
+    .login-icon { 
+        margin-right: 10px;
+    }
+    .login-icon-facebook { 
+        color: rgb(103, 103, 246); 
+    }
+    &:hover { 
+        .login-icon { 
+            transform: rotate(720deg);
+            transition: .6s ease-in-out;
         }
-    }  
+    }
 }
-
-//https://www.youtube.com/watch?v=Q-y8ASwOYgQ
