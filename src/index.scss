@@ -1,5 +1,6 @@
 //Fonts
 @import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@500&display=swap');
+$font-main: 'Hind Madurai', sans-serif; 
 
 //Element colors 
 $primary-color: rgb(58, 59, 59);  
@@ -11,8 +12,10 @@ $link-color: rgb(223, 223, 223);
 
 //Text sizes 
 $text-size-paragraph: 14px;
+$text-size-logo: 25px; 
 $text-size-h1: 48px; 
 
+//Mixins 
 @mixin flexBox($alignItems, $justifyContent, $flexDirection) { 
     display: flex;
     flex-direction: $flexDirection;
@@ -33,6 +36,7 @@ $text-size-h1: 48px;
     }
 }
 
+//General page settings 
 * { 
     padding: 0; 
     margin: 0; 
@@ -42,9 +46,10 @@ $text-size-h1: 48px;
 body { 
     width: 100%;
     height: 100%; 
-    font-family: 'Hind Madurai', sans-serif;
+    font-family: 'Hind Madurai', sans-serif; 
 }
 
+/*Login page*/ 
 #login-page { 
     @include flexBox((center), center, row);
     height: 100vh; 
@@ -87,4 +92,36 @@ body {
             transition: .6s ease-in-out;
         }
     }
+}
+
+/*Chats page*/ 
+.nav-bar { 
+    @include flexBox(center, space-between, row); 
+    width: 100%; 
+    height: 66px;
+    background: rgb(14,12,59);
+    background: radial-gradient(circle, rgba(14,12,59,1) 0%, rgba(148,187,233,1) 100%);
+    #nav-logo { 
+        margin-left: 15px;
+        font-size: $text-size-logo;  
+        font-weight: 700;
+        color: $text-color-dark; 
+    }  
+    #nav-logout-button { 
+        @include button($primary-color, white, rgb(88, 86, 86)); 
+        margin-right: 15px;
+        border: none; 
+    }
+}
+
+.ce-wrapper,
+.ce-chat-card,
+.ce-chat-list { 
+    font-family: $font-main !important;
+}
+
+.ce-chat-card { 
+    min-width: 250px; 
+    color: white !important; 
+    background-color: $primary-color !important;
 }

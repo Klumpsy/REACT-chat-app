@@ -12,6 +12,7 @@ body {
   font-family: 'Hind Madurai', sans-serif;
 }
 
+/*Login page*/
 #login-page {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -105,5 +106,61 @@ body {
           transform: rotate(720deg);
   -webkit-transition: .6s ease-in-out;
   transition: .6s ease-in-out;
+}
+
+/*Chats page*/
+.nav-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  height: 66px;
+  background: #0e0c3b;
+  background: radial-gradient(circle, #0e0c3b 0%, #94bbe9 100%);
+}
+
+.nav-bar #nav-logo {
+  margin-left: 15px;
+  font-size: 25px;
+  font-weight: 700;
+  color: #242323;
+}
+
+.nav-bar #nav-logout-button {
+  width: 220px;
+  height: 50px;
+  color: white;
+  background-color: #3a3b3b;
+  font-size: 16px;
+  padding: 10px;
+  margin-right: 15px;
+  border: none;
+}
+
+.nav-bar #nav-logout-button:hover {
+  cursor: pointer;
+  background-color: #585656;
+}
+
+.ce-wrapper,
+.ce-chat-card,
+.ce-chat-list {
+  font-family: "Hind Madurai", sans-serif !important;
+}
+
+.ce-chat-card {
+  min-width: 250px;
+  color: white !important;
+  background-color: #3a3b3b !important;
 }
 /*# sourceMappingURL=index.css.map */
